@@ -91,6 +91,15 @@ class AppTextStyles {
 
   );
 
+  static const ProfileText = TextStyle(
+
+    color: Color(0x88FFFFFF),
+    fontSize: 15.0,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w400,
+
+  );
+
   static const regularBoldText = TextStyle(
 
     color: AppColors.defaultColor,

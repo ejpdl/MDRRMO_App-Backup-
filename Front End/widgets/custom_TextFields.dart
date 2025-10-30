@@ -5,6 +5,7 @@ import '../widgets/styles.dart';
 class CustomTextFields extends StatelessWidget {
 
   final String label;
+  final String? hintText;
   final TextEditingController controller;
   final Color? borderColor;
   final bool isPassword;
@@ -16,6 +17,7 @@ const CustomTextFields({
   super.key,
   required this.label,
   required this.controller,
+  this.hintText,
   this.borderColor,
   this.isPassword = false,
   this.obscureText = false,
@@ -45,7 +47,7 @@ const CustomTextFields({
           style: AppTextStyles.regularText,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
-            hintText: 'Enter your $label',
+            hintText: hintText ?? 'Enter your $label',
             hintStyle: const TextStyle(
               color: Colors.grey,
               fontSize: 14.0,

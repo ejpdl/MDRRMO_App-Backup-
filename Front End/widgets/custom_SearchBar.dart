@@ -25,12 +25,20 @@ const CustomSearchBar({
         child: TextField(
         
           onChanged: onChanged,
+
+          style: const TextStyle(
+
+            color: Colors.white,
+            
+          ),
+
           decoration: InputDecoration(
         
             contentPadding: EdgeInsets.symmetric(vertical: 12.0),
             prefixIcon: const Icon(Icons.search, color: Colors.white, size: 20.0),
             hintText: hintText,
             hintStyle: const TextStyle(color: Colors.grey),
+            
         
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12.0),

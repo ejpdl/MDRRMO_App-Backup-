@@ -38,10 +38,10 @@ class CustomTableRow extends StatelessWidget {
   String _formatDate(String date) {
   try {
     final parsedDate = DateFormat("MMMM d, yyyy").parse(date); 
-    // Format: "AUG 18, 2025"
+    
     return DateFormat("MMM d, yyyy").format(parsedDate).toUpperCase(); 
   } catch (e) {
-    return date; // fallback if parsing fails
+    return date;
   }
 }
 
@@ -63,7 +63,7 @@ class CustomTableRow extends StatelessWidget {
             style: textStyle.copyWith(fontSize: dynamicFontSize),
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
-            maxLines: 1,
+            maxLines: 2,
           ),
 
         ),
@@ -78,7 +78,7 @@ class CustomTableRow extends StatelessWidget {
             style: textStyle.copyWith(fontSize: dynamicFontSize),
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
-            maxLines: 1,
+            maxLines: 2,
 
           ),
 
@@ -94,7 +94,7 @@ class CustomTableRow extends StatelessWidget {
             style: textStyle.copyWith(fontSize: dynamicFontSize),
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
-            maxLines: 1,
+            maxLines: 2,
 
           ),
 
