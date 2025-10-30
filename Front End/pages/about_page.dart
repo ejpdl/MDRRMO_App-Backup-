@@ -25,9 +25,9 @@ const AboutPage({ Key? key }) : super(key: key);
                 imagePath: "assets/icons/octicon--goal-16.png",
                 bullets: [
           
-                  "Disseminate real-time alerts and advisories during emergencies such as typhoons, floods, earthquakes, and fires.",
+                  "Disseminate real-time alerts and advisories during emergencies such as typhoons, floods, earthquakes, fires, and other accidents.",
           
-                  "Enable easy access to emergency contact numbers, evacuation routes, and relief center locations.",
+                  "Enable easy access to emergency contact numbers, monitoring of reports, and detailed reportings.",
           
                   "Serve as a tool for reporting incidents or hazards within the municipality.",
           

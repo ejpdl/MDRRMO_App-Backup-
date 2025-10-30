@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/styles.dart';
 import '../widgets/custom_AppBar.dart';
@@ -41,6 +42,23 @@ class _LogInPageState extends State<LogInPage> {
 
     if(result == "Login Successful"){
 
+      final prefs = await SharedPreferences.getInstance();
+
+      if(_checkBox){
+        
+        await prefs.setString('savedUsername', user);
+        await prefs.setString('savedPassword', pass);
+        await prefs.setBool('rememberMe', true);
+
+      }else{
+        
+        await prefs.remove('savedUsername');
+        await prefs.remove('savedPassword');
+        await prefs.setBool('rememberMe', false);
+        
+
+      }
+
       Navigator.pushNamed(context, '/dashboard_page');
 
     }else{
@@ -64,6 +82,28 @@ class _LogInPageState extends State<LogInPage> {
       ..onTap = () {
         Navigator.pushNamed(context, '/register_page');
       };
+
+    _loadSavedCredentials();
+
+  }
+
+  Future<void> _loadSavedCredentials() async {
+
+    final prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+
+      _usernameController.text = prefs.getString('savedUsername') ?? '';
+      _passwordController.text = prefs.getString('savedPassword') ?? '';
+      _checkBox = prefs.getBool('rememberMe') ?? false;
+
+    });
+
+    print('🔹 Loaded saved credentials:');
+    print('Username: ${_usernameController.text}');
+    print('Password: ${_passwordController.text}');
+    print('RememberMe: $_checkBox');
+
   }
 
   void dispose() {

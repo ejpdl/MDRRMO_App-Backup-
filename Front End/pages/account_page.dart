@@ -72,7 +72,7 @@ class _AccountPageState extends State<AccountPage> {
 
             CustomProfileEdit(
 
-              imagePath: 'assets/images/EJ.jpg',
+              imagePath: 'assets/images/placeholder.jpg',
               onClicked: () async {
 
                 final image = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -86,15 +86,38 @@ class _AccountPageState extends State<AccountPage> {
 
             AppHeight(30.0),
 
-            Text("${user!.firstname} ${user!.lastname}", style: AppTextStyles.welcomeTitle),
+            Center(
+
+              child: Text(
+                "${user!.firstname} ${user!.lastname}", 
+                style: AppTextStyles.welcomeTitle,
+                textAlign: TextAlign.center,
+              ),
+
+            ),
 
             AppHeight(20.0),
 
-            Text("${user!.address}", style: AppTextStyles.regularText),
+            Center(
+
+              child: Text(
+                "${user!.address}", 
+                style: AppTextStyles.ProfileText,
+                textAlign: TextAlign.center,
+              ),
+
+            ),
             
             AppHeight(10.0),
 
-            Text("${user!.contact}", style: AppTextStyles.regularText),
+            Center(
+              
+              child: Text(
+                "${user!.contact}", 
+                style: AppTextStyles.ProfileText,
+                textAlign: TextAlign.center,
+              ),
+            ),
 
             AppHeight(30.0),
 

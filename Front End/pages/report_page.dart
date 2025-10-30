@@ -40,13 +40,31 @@ class _ReportPageState extends State<ReportPage> {
 
   final List<String> districtOptions = [
 
-    "Pahinga Norte",
-    "Pahinga Sur", 
+    "Poblacion",
+    "Buenavista East", 
+    "Buenavista West", 
+    "Bukal Norte", 
+    "Bukal Sur", 
     "Kinatihan I", 
     "Kinatihan II", 
-    "Kinatihan III", 
+    "Malabanban Norte", 
+    "Malabanban Sur", 
+    "Mangilag Norte", 
+    "Mangilag Sur", 
+    "Masalukot I", 
+    "Masalukot II", 
+    "Masalukot III", 
+    "Masalukot IV", 
+    "Masalukot V", 
+    "Masin Norte", 
+    "Masin Sur", 
+    "Mayabobo", 
+    "Pahinga Norte", 
+    "Pahinga Sur", 
+    "San Andres", 
     "San Isidro", 
-    "Poblacion",
+    "Sta. Catalina Norte", 
+    "Sta. Catalina Sur", 
 
   ];
 
@@ -55,9 +73,9 @@ class _ReportPageState extends State<ReportPage> {
     "Motorcycle Accident",
     "Pedestrian Accident",
     "Four Wheels Accident",
-    "Earthquake",
-    "Flood",
-    "Fire",
+    "Earthquake Accident",
+    "Flood Accident",
+    "Fire Accident",
 
   ];
 
@@ -125,6 +143,109 @@ class _ReportPageState extends State<ReportPage> {
     }
 
   }
+
+  Future<void> _showConfirmationDialog() async {
+
+  final bool? confirm = await showDialog<bool>(
+
+    context: context,
+    barrierDismissible: false,
+
+    builder:(BuildContext context){
+
+      return AlertDialog(
+
+        backgroundColor: const Color(0xFF0C092B),
+
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+
+        content: SingleChildScrollView(
+
+          child: Column(
+
+            mainAxisSize: MainAxisSize.min,
+
+            children: [
+
+              AppHeight(15.0),
+
+              const Text(
+
+                "Confirmation",
+                style: AppTextStyles.appBarTitle2,
+                textAlign: TextAlign.center,
+
+              ),
+
+              AppHeight(15.0),
+
+              const Text(
+
+                "By proceeding, you hereby confirm that all information you entered is true and accurate to the best of your knowledge.",
+                style: AppTextStyles.regularText,
+                textAlign: TextAlign.center,
+
+              ),
+
+              AppHeight(25.0),
+
+              Row(
+
+                mainAxisAlignment: MainAxisAlignment.end,
+
+                children: [
+                 
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(false),
+                    child: const Text(
+                      "Go Back",
+                      style: AppTextStyles.regularBoldText,
+                    ),
+                  ),
+
+                  AppHeight(10.0),
+
+                  ElevatedButton(
+
+                    onPressed: () => Navigator.of(context).pop(true),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFEA4D2E),
+                    ),
+
+                    child: const Text(
+                      "Proceed",
+                      style: AppTextStyles.regularBoldText,
+                    ),
+
+                  ),
+
+                ],
+
+              ),
+
+            ],
+
+          ),
+
+        ),
+
+      );
+
+    },
+
+  );
+
+
+  if(confirm == true){
+
+    _submitReport();
+
+  }
+  
+}
+
 
 
 
@@ -274,6 +395,7 @@ class _ReportPageState extends State<ReportPage> {
                     CustomTextFields(
 
                       label: "Street",
+                      hintText: "#35 Sitio Showlook",
                       controller: streetController,
                       
                     ),
@@ -299,7 +421,8 @@ class _ReportPageState extends State<ReportPage> {
                       fontSize: 15.0,
                       color: AppColors.defaultColor,
                       height: 60.0,
-                      onPressed: _submitReport,
+                      onPressed: _showConfirmationDialog,
+                      // _submitReport
                     ),
 
                   ],

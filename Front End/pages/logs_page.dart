@@ -94,7 +94,7 @@ Widget build(BuildContext context) {
           ),
           AppHeight(10.0),
 
-          // --- Scrollable reports
+          
           Expanded(
             child: FutureBuilder<List<ReportLogs>>(
               future: reportsFuture,
